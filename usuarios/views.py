@@ -48,10 +48,13 @@ def valida_login(request):
     if len(usuario) == 0:
         return redirect ('/auth/login/?status=1')
     elif len(usuario) > 0:
-        request.session['status'] = True
+        request.session['logado'] = True
         request.session['usuario_id'] = usuario[0].id       
         return redirect ('/plataforma/home')
 
 def sair(request):    
-    request.session.flush()               
-    return redirect ('/auth/login/')
+    try:
+        del request.session['logado']         
+        return redirect ('/auth/login/')
+    except KeyError:
+        return redirect('/auth/login/?status=3')
