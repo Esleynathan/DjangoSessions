@@ -109,6 +109,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# Definindo tempo sessions
+SESSION_COOKIE_AGE = 60 * 5
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 

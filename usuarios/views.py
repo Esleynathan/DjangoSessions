@@ -53,6 +53,5 @@ def valida_login(request):
         return redirect ('/plataforma/home')
 
 def sair(request):    
-    request.session.clear()
-               
+    request.session.flush()               
     return redirect ('/auth/login/')
