@@ -22,7 +22,7 @@ def valida_cadastro (request):
         return redirect('/auth/cadastro/?status=1')
 
     if len(senha) < 8:
-        return redirect('/auth/cadastro?/status=2')
+        return redirect('/auth/cadastro/?status=2')
     
     usuario = Usuario.objects.filter(email = email)
     if len(usuario) > 0:
